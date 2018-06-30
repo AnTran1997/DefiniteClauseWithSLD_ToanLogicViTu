@@ -7,12 +7,23 @@ void initTree(TREE &T)
 	T = NULL;
 }
 
+//TNode* getNode(string s)
+//{
+//	TNode* p = new TNode;
+//	if (p == NULL)
+//		return NULL;
+//	p->data = s;
+//	p->left = NULL;
+//	p->right = NULL;
+//	return p;
+//}
+
 TNode* getNode(string s)
 {
 	TNode* p = new TNode;
 	if (p == NULL)
 		return NULL;
-	p->data = s;
+	p->data.push_back(s);
 	p->left = NULL;
 	p->right = NULL;
 	return p;
@@ -28,14 +39,6 @@ void insertLeft(TREE &T, string s)
 	}
 }
 
-void insertRoot(TREE &T, string s) {
-	if (T == NULL)
-		T = getNode(s);
-	else
-	{
-		cout << "Root is already exist";
-	}
-}
 
 void insertRight(TREE &T, string s)
 {
@@ -46,12 +49,12 @@ void insertRight(TREE &T, string s)
 }
 
 
-
 void LNR(TREE T)
 {
 	if (T != NULL) {
 		LNR(T->left);
-		cout << T->data << "  ";
+		//cout << T->data << "  ";
+		outputArr(T->data);
 		LNR(T->right);
 	}
 }
@@ -59,7 +62,8 @@ void LNR(TREE T)
 void NLR(TREE T)
 {
 	if (T != NULL) {
-		cout << T->data << "  ";
+		//cout << T->data << "  ";
+		outputArr(T->data);
 		NLR(T->left);
 		NLR(T->right);
 	}
@@ -70,7 +74,8 @@ void LRN(TREE T)
 	if (T != NULL) {
 		LRN(T->left);
 		LRN(T->right);
-		cout << T->data << "  ";
+		//cout << T->data << "  ";
+		outputArr(T->data);
 	}
 }
 
@@ -152,24 +157,6 @@ TNode* findMostLeft(TREE sld)	//the nex parent is the most left/right leaf node
 
 }
 
-bool findNode(TNode*currentNode, string s)
-{
-	if (currentNode->data == s || currentNode->left->data == s || currentNode->right->data == s)
-		return true;
-	return false;
-}
-
-TNode* find(TREE T, string s) {
-	if (T) {
-		if (T->data == s)
-			return T;
-		else {
-			find(T->left, s);
-			find(T->right, s);
-		}
-	}
-}
-
 /*void insertSLD(TREE& sld, vector<string> body, vector<string> head,string statement)
 {
 	
@@ -200,17 +187,27 @@ TNode* find(TREE T, string s) {
 	} while (root != "false" && root != "true");
 }*/
 
-int numberDefiniteBody(string s)
+int numberLiteralInBody(string s)
 {
-	int number = 0;
+	int number = 1;
+	string sub;
+	int posComma = s.find(",");
+	if (posComma != -1)
+		sub = s.substr(posComma);
+	while (posComma != -1) {
+		number++;
+		sub = sub.substr(posComma + 1);
+		cout << sub << endl;
+		posComma = sub.find(",");
+	}
 	return number;
 }
 
 
 void insertSLD(TREE& sld, vector<string> head, vector<string> body)
 {
-	if (sld && sld->data != "true" && sld->data != "false") {
-		string currentNode = sld->data;
+	if (sld && sld->data[0] != "true" && sld->data[0] != "false") {
+		string currentNode = sld->data[0];
 		int numberPre = theNumberOfHead(head, currentNode);
 		if (numberPre == 0)
 			insertLeft(sld, "false");
@@ -235,4 +232,37 @@ void insertSLD(TREE& sld, vector<string> head, vector<string> body)
 		insertSLD(sld->left, head, body);
 		insertSLD(sld->right, head, body);
 	}
+}
+
+bool isLoop(vector<string> existClause, string toCheck)
+{
+	for (int i = 0; i < existClause.size(); i++) {
+		if (existClause[i] == toCheck)
+			return true;
+	}
+	return false;
+}
+
+void outputArr(vector<string> arr)
+{
+	for (int i = 0; i < arr.size(); i++) {
+		cout << arr[i] << " ";
+	}
+}
+
+vector<string> parseBodyToLiteral(string s)
+{
+	vector<string> literals;	//Array of literals which is in string s 
+	string sub;
+	int posComma = s.find(",");
+	if (posComma != -1) {
+		sub = s.substr(posComma + 1);
+		literals.push_back(removeSpace(s.substr(0, posComma)));
+	}
+	while (posComma != -1) {
+		posComma = sub.find(",");
+		literals.push_back(removeSpace(sub.substr(0, posComma)));
+		sub = sub.substr(posComma + 1);	
+	}
+	return literals;
 }

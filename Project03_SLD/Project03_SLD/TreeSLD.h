@@ -1,4 +1,4 @@
-
+﻿
 #include <iostream>
 #include <string>
 #include <vector>
@@ -7,9 +7,17 @@ using namespace std;
 
 
 
+//struct TNode
+//{
+//	string data;
+//	TNode* left;
+//	TNode* right;
+//};
+//typedef TNode *TREE;
+
 struct TNode
 {
-	string data;
+	vector<string> data;
 	TNode* left;
 	TNode* right;
 };
@@ -47,11 +55,12 @@ int theNumberOfHead(vector<string> head, string foundStr);
 TNode* findMostLeft(TREE sld);	//the nex parent is the most left/right leaf node
 
 
-bool findNode(TNode*currentNode, string s);
-
-TNode* find(TREE T, string s);
-
-
 void insertSLD(TREE&, vector<string>, vector<string>);
 
-int numberDefiniteBody(string);
+int numberLiteralInBody(string);
+
+bool isLoop(vector<string>, string);
+
+void outputArr(vector<string>);
+
+vector<string> parseBodyToLiteral(string);	//Chuyển đổi body dạng string thành chuỗi các trực kiện
