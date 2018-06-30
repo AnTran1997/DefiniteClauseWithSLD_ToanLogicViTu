@@ -169,3 +169,70 @@ TNode* find(TREE T, string s) {
 		}
 	}
 }
+
+/*void insertSLD(TREE& sld, vector<string> body, vector<string> head,string statement)
+{
+	
+	string root = statement;
+	//vector<string> nodeHasManyChild;
+	stack<string> nodeHasManyChild;
+	do {
+		int numberPre = theNumberOfHead(head, root);
+		if (numberPre == 0)
+			insertLeft(sld, "false");
+		int index = 0;
+		for (int i = 0; i < head.size(); i++) {
+			if (head[i] == root) {
+				if (body[i] == "_")
+					insertLeft(sld, "true");
+				if (index == 0)
+					insertLeft(sld, body[i]);
+				else {
+					insertRight(sld, body[i]);
+					nodeHasManyChild.push(root);
+				}
+				index++;
+			}
+		}
+		NLR(sld);
+		root = findMostLeft(sld)->data;
+		cout << endl;
+	} while (root != "false" && root != "true");
+}*/
+
+int numberDefiniteBody(string s)
+{
+	int number = 0;
+	return number;
+}
+
+
+void insertSLD(TREE& sld, vector<string> head, vector<string> body)
+{
+	if (sld && sld->data != "true" && sld->data != "false") {
+		string currentNode = sld->data;
+		int numberPre = theNumberOfHead(head, currentNode);
+		if (numberPre == 0)
+			insertLeft(sld, "false");
+		else {
+			int index = 0;
+			for (int i = 0; i < head.size(); i++) {
+				if (head[i] == currentNode) {
+					if (body[i] == "_")
+						insertLeft(sld, "true");
+					if (index == 0)
+						insertLeft(sld, body[i]);
+					else {
+						insertRight(sld, body[i]);
+						break;
+					}
+					index++;
+				}
+			}
+		}
+		NLR(sld);
+		cout << endl;
+		insertSLD(sld->left, head, body);
+		insertSLD(sld->right, head, body);
+	}
+}

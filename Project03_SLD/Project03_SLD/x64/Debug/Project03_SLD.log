@@ -1,10 +1,10 @@
-﻿  Project03_SLD.cpp
-d:\myrepositories\git\programs\definiteclausewithsld_toanlogicvitu\project03_sld\project03_sld\project03_sld.cpp(150): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-d:\myrepositories\git\programs\definiteclausewithsld_toanlogicvitu\project03_sld\project03_sld\project03_sld.cpp(155): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-d:\myrepositories\git\programs\definiteclausewithsld_toanlogicvitu\project03_sld\project03_sld\project03_sld.cpp(166): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-d:\myrepositories\git\programs\definiteclausewithsld_toanlogicvitu\project03_sld\project03_sld\project03_sld.cpp(167): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-d:\myrepositories\git\programs\definiteclausewithsld_toanlogicvitu\project03_sld\project03_sld\project03_sld.cpp(182): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-d:\myrepositories\git\programs\definiteclausewithsld_toanlogicvitu\project03_sld\project03_sld\project03_sld.cpp(183): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-d:\myrepositories\git\programs\definiteclausewithsld_toanlogicvitu\project03_sld\project03_sld\project03_sld.cpp(211): warning C4715: 'findMostLeft': not all control paths return a value
-d:\myrepositories\git\programs\definiteclausewithsld_toanlogicvitu\project03_sld\project03_sld\project03_sld.cpp(230): warning C4715: 'find': not all control paths return a value
+﻿  TreeSLD.cpp
+d:\myrepositories\git\programs\definiteclausewithsld_toanlogicvitu\project03_sld\project03_sld\treesld.cpp(92): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+d:\myrepositories\git\programs\definiteclausewithsld_toanlogicvitu\project03_sld\project03_sld\treesld.cpp(97): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+d:\myrepositories\git\programs\definiteclausewithsld_toanlogicvitu\project03_sld\project03_sld\treesld.cpp(108): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+d:\myrepositories\git\programs\definiteclausewithsld_toanlogicvitu\project03_sld\project03_sld\treesld.cpp(109): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+d:\myrepositories\git\programs\definiteclausewithsld_toanlogicvitu\project03_sld\project03_sld\treesld.cpp(124): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+d:\myrepositories\git\programs\definiteclausewithsld_toanlogicvitu\project03_sld\project03_sld\treesld.cpp(125): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+d:\myrepositories\git\programs\definiteclausewithsld_toanlogicvitu\project03_sld\project03_sld\treesld.cpp(153): warning C4715: 'findMostLeft': not all control paths return a value
+d:\myrepositories\git\programs\definiteclausewithsld_toanlogicvitu\project03_sld\project03_sld\treesld.cpp(171): warning C4715: 'find': not all control paths return a value
   Project03_SLD.vcxproj -> D:\MyRepositories\Git\Programs\DefiniteClauseWithSLD_ToanLogicViTu\Project03_SLD\x64\Debug\Project03_SLD.exe

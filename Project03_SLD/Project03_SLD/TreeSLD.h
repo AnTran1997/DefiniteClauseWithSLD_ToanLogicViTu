@@ -15,11 +15,7 @@ struct TNode
 };
 typedef TNode *TREE;
 
-void initTree(TREE &T)
-{
-	T = NULL;
-}
-
+void initTree(TREE &T);
 TNode* getNode(string s);
 
 void insertLeft(TREE &T, string s);
@@ -54,3 +50,8 @@ TNode* findMostLeft(TREE sld);	//the nex parent is the most left/right leaf node
 bool findNode(TNode*currentNode, string s);
 
 TNode* find(TREE T, string s);
+
+
+void insertSLD(TREE&, vector<string>, vector<string>);
+
+int numberDefiniteBody(string);
