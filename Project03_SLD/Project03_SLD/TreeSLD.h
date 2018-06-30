@@ -24,13 +24,11 @@ struct TNode
 typedef TNode *TREE;
 
 void initTree(TREE &T);
-TNode* getNode(string s);
+TNode* getNode(vector<string> s);
 
-void insertLeft(TREE &T, string s);
+void insertLeft(TREE &T, vector<string> s);
 
-void insertRoot(TREE &T, string s);
-
-void insertRight(TREE &T, string s);
+void insertRight(TREE &T, vector<string> s);
 
 
 void LNR(TREE T);
@@ -64,3 +62,13 @@ bool isLoop(vector<string>, string);
 void outputArr(vector<string>);
 
 vector<string> parseBodyToLiteral(string);	//Chuyển đổi body dạng string thành chuỗi các trực kiện
+
+vector<string> leftLiteralsInNode(vector<string>);		//Những trực kiện còn lại chưa được xử lý trong một node
+
+void removeSameValue(vector<string>&);
+
+vector<string> mergeParentAndChild(vector<string>, string);	//merge left literals in parent to its child
+
+bool checkIfLoop(vector<string>, string);	//Kiểm tra data của node hiện tại có thuộc node trươc đó đã thêm hay chưa
+
+int isInLiteral(string);
